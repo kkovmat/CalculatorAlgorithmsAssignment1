@@ -7,7 +7,12 @@ class CustomStack<T>
     {
         if (pointer == array.Length)
         {
-            throw new Exception("Stack overflowed.");
+            T[] extendedArray = new T[array.Length * 2];
+            for (int i = 0; i < array.Length; i++)
+            {
+                extendedArray[i] = array[i];
+            }
+            array = extendedArray;
         }
         array[pointer] = value;
         pointer++;

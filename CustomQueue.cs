@@ -6,6 +6,15 @@ class CustomQueue<T>
 
     public void Enqueue(T value)
     {
+        if (Count() == array.Length)
+        {
+            T[] extendedArray = new T[array.Length * 2];
+            for (int i = 0; i < array.Length; i++)
+            {
+                extendedArray[i] = array[i];
+            }
+            array = extendedArray;
+        }
         array[endPointer] = value;
         endPointer++;
     }
